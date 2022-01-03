@@ -1,4 +1,4 @@
-const bodyParser = require("body-parser");
+
 
 /* Global Variables */
 let baseURL = 'api.openweathermap.org/data/2.5/weather?zip=';

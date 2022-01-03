@@ -33,7 +33,7 @@ const getWeatherData = async (baseURL, zipcode, key) => {
 const postData = async (url = '' ,data ={}) =>{
     const response = await fetch(url, {
         method: "POST",
-        credentials: "ssame-origin",
+        credentials: "same-origin",
         headers:{
         "Content-Type" : "application/json"
     },

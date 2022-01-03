@@ -1,8 +1,8 @@
 const bodyParser = require("body-parser");
 
 /* Global Variables */
-const baseURL = 'api.openweathermap.org/data/2.5/weather?zip=';
-const apiKey = '&appid=c6aef926523d47d5e027b20e30bacfbc&units=imperial';
+let baseURL = 'api.openweathermap.org/data/2.5/weather?zip=';
+let apiKey = '&appid=c6aef926523d47d5e027b20e30bacfbc&units=imperial';
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
@@ -43,7 +43,7 @@ const postData = async (url = '' ,data ={}) =>{
 })
 
     try {
-        // 
+        // getting data
         const newData = await response.json();
         return newData
     }
@@ -54,4 +54,17 @@ const postData = async (url = '' ,data ={}) =>{
 
 
 
+}
+/*FUNCTION TO GET project Data */ 
+const returnData = async () => {
+    const response = await fetch('/all');
+    try {
+        // transfor
+        const alldata = response.json()
+        console.log(alldata);
+    }
+    catch(error) {
+        console.log("error",  error);
+        // handling error porperly
+    }
 }

@@ -11,9 +11,9 @@ document.getElementById('generate').addEventListener('click', doAction);
 // make fucntion called do action
 function doAction(e) {
     // get value
-    const zip = document.getElementById('zip').value;
+    const zipcode = document.getElementById("zip").value;
     // add the value to get the data
-    getWeatherData(baseURL, zip, apiKey);
+    getWeatherData(baseURL, zipcode, apiKey);
 }
 
 //fetch the data 
@@ -32,18 +32,18 @@ const getWeatherData = async (baseURL, zipcode, key) => {
 /* post Data*/ 
 const postData = async (url = '' ,data ={}) =>{
     const response = await fetch(url, {
-        method: "POST",
-        credentials: "same-origin",
+        method: 'POST',
+        credentials: 'same-origin',
         headers:{
-        "Content-Type" : "application/json"
+        'Content-Type' : 'application/json',
     },
     body: JSON.stringify(data),// to match content type in header
 })
 
     try {
-        // getting data
+        // getting response
         const newData = await response.json();
-        return newData
+        return newData;
     }
     catch(error) {
         // handling errors properly
@@ -57,7 +57,7 @@ const postData = async (url = '' ,data ={}) =>{
 const returnData = async () => {
     const response = await fetch('/all');
     try {
-        // transfor
+        // transform into json
         const alldata = response.json()
         console.log(alldata);
     }

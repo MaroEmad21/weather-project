@@ -10,20 +10,24 @@ document.getElementById('generate').addEventListener('click', doAction)
 
 // make fucntion called do action
 function doAction(e) {
+    // get value
     const zip = document.getElementById('zip').value;
+    // add the value to get the data
     getWeatherData(baseURL, zip, apiKey);
 }
 
-
+//fetch the data 
 const getWeatherData = async (baseURL, zipcode, key) => {
     const res = await fetch(baseURL+zipcode+key)
     try {
-        const data = res.json();
-        return data
+        // get the response
+        const data = res.json();//we will use it in updating the ui
+        console.log(data);
     }
     catch(error) {
         console.log('error', error);
+        // handling error properly
     }
 }
-
+/* post Data*/ 
 

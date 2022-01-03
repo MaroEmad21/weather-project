@@ -28,8 +28,11 @@ const port = 8000;
 app.listen(port, () => {
     console.log(`running on http://localhost:${port}`)
 });
-// get data to main route
-app.get('/' , getprojectData)
+// intialize all route
+app.get('/all' , getprojectData)
+// fucntion to complete get all
 function getprojectData(req, res){
     res.send(projectData)
+    console.log(projectData);
 }
+// post route

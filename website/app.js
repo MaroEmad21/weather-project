@@ -1,5 +1,3 @@
-
-
 /* Global Variables */
 let baseURL = 'api.openweathermap.org/data/2.5/weather?zip=';
 let apiKey = '&appid=c6aef926523d47d5e027b20e30bacfbc&units=imperial';
@@ -8,7 +6,7 @@ let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // get generate element
-document.getElementById('generate').addEventListener('click', doAction)
+document.getElementById('generate').addEventListener('click', doAction);
 
 // make fucntion called do action
 function doAction(e) {

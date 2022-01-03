@@ -1,3 +1,5 @@
+const bodyParser = require("body-parser");
+
 /* Global Variables */
 const baseURL = 'api.openweathermap.org/data/2.5/weather?zip=';
 const apiKey = '&appid=c6aef926523d47d5e027b20e30bacfbc&units=imperial';
@@ -30,4 +32,26 @@ const getWeatherData = async (baseURL, zipcode, key) => {
     }
 }
 /* post Data*/ 
+const postData = async (url = '' ,data ={}) =>{
+    const response = await fetch(url, {
+        method: "POST",
+        credentials: "ssame-origin",
+        headers:{
+        "Content-Type" : "application/json"
+    },
+    body: JSON.stringify(data),// to match content type in header
+})
 
+    try {
+        // 
+        const newData = await response.json();
+        return newData
+    }
+    catch(error) {
+        // handling errors properly
+        console.log("error", error);
+    }
+
+
+
+}

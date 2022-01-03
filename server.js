@@ -22,8 +22,14 @@ app.use(express.static('website'));
 
 
 // Setup Server
+// added the port
 const port = 8000;
+// run the server
 app.listen(port, () => {
     console.log(`running on http://localhost:${port}`)
 });
-
+// get data to main route
+app.get('/' , getprojectData)
+function getprojectData(req, res){
+    res.send(projectData)
+}

@@ -5,11 +5,11 @@ body{
 
 #app{
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
+    grid-auto-rows: minmax(100px, auto);
     /* grid-template-columns:  */
     height:100vh;
-    background: #f23557;
-    color: #f0d43a;
+    background: #941b31;
+    color: #e4d613;
     justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
@@ -17,7 +17,7 @@ body{
 }
 
 .holder{
-
+    
 }
 
 .entry{
@@ -30,25 +30,36 @@ body{
 
 #date{
     border-radius: 25px;
-    border: 2px;
+    border: 2px  solid black;
     padding: 20px;
     width: 200px;
     height: 20px;
 }
 
 #temp{
-
+    border-radius: 25px;
+    border: 2px  solid black;
+    padding: 20px;
+    width: 200px;
+    height: 20px;
 }
 
 #content{
-
+    border-radius: 25px;
+    border: 2px  solid black;
+    padding: 20px;
+    width: 200px;
+    height: 20px;
 }
 
 .headline {
 
 }
 .title{
-
+  background-color: black;
+  width: 200px;
+  border-radius: 25px;
+  padding: 10px;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
@@ -61,9 +72,9 @@ input{
     display:block;
     height: 60px;
     width: 320px;
-    background:#22b2da;
+    background:#1185a5;
     color: #f0d43a;
-    font-size: 20px;
+    font-size: 30px;
     font-family: 'Oswald', sans-serif;
     border: none;
 }
@@ -73,19 +84,19 @@ button{
     height: 100px;
     background: #3b4a6b;
     color: #f0d43a;
-    font-size: 26px;
+    font-size: 30px;
     font-family: 'Oswald', sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
 }
 h1{
-    font-size: 36px;
+    font-size: 50px;
 }
 
 textarea{
-    background:#22b2da;
+    background:#147691;
     color: #f0d43a;
-    font-size: 20px;
+    font-size: 24px;
     font-family: 'Oswald', sans-serif;
 }
 /* Reset style for HTML element on active to have no border*/

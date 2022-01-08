@@ -64,11 +64,15 @@ const postData = async (url = '' ,data ={}) =>{
 }
 /*FUNCTION TO GET project Data */ 
 const retrieveData = async () => {
-    const response = await fetch('/all');
+    const response = await fetch('/getData');
     try {
         // transform into json
         const alldata = response.json()
         console.log(alldata);
+        // Write updated data to DOM elements
+        document.getElementById('temp').innerHTML = Math.round(allData.temp)+ 'degrees';
+        document.getElementById('content').innerHTML = allData.content;
+         document.getElementById("date").innerHTML =allData.newDate;
     }
     catch(error) {
         console.log("error",  error);

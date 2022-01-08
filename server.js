@@ -29,14 +29,14 @@ app.listen(port, () => {
     console.log(`running on http://localhost:${port}`)
 });
 // intialize all route
-app.get('/all' , getprojectData)
+app.get('/getData' , getprojectData)
 // fucntion to complete get all
 function getprojectData(req, res){
     res.send(projectData)
     console.log(projectData);
 }
 // POST route
-app.post('/hey', addData)
+app.post('/setData', addData)
 
 function addData(req, res){
     projectData = {...req.body}

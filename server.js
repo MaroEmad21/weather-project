@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-const projectData = [];
+const projectData = {};
 
 // Require Express to run server and routes
 const express = require('express');
@@ -36,5 +36,10 @@ function getprojectData(req, res){
     console.log(projectData);
 }
 // POST route
+const data = [];
+app.post('/hey', addData)
 
-
+function addData(req, res){
+    data.push(req.body);
+    console.log(req.body)
+}

@@ -23,20 +23,18 @@ app.use(express.static('website'));
 
 // Setup Server
 // added the port
-const port = 8000;
+const port = 8080;
 // run the server
 app.listen(port, () => {
     console.log(`running on http://localhost:${port}`)
 });
 // intialize all route
-app.get('/' , getprojectData)
+app.get('/all' , getprojectData)
 // fucntion to complete get all
 function getprojectData(req, res){
     res.send(projectData)
     console.log(projectData);
 }
 // post route
-app.post('/all', (req, res)=>{
-    res.send(returnData);
-    console.log(returnData)
-});
+const alldata = []
+

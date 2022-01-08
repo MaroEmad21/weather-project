@@ -1,6 +1,6 @@
 /* Global Variables */
-let baseURL = 'api.openweathermap.org/data/2.5/weather?zip=';
-let apiKey = '&appid=c6aef926523d47d5e027b20e30bacfbc&units=imperial';
+const baseURL = 'api.openweathermap.org/data/2.5/weather?zip=';
+const apiKey = '&appid=c6aef926523d47d5e027b20e30bacfbc';
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
@@ -17,8 +17,9 @@ function doAction(e) {
 }
 
 //fetch the data 
-const getWeatherData = async (baseURL, zipcode, key) => {
-    const res = await fetch(baseURL+zipcode+key)
+const getWeatherData = async (baseURL, zip, key) => {
+    const res = await fetch(baseURL+zip+key)
+    //const response = await fetch("/fakeData")
     try {
         // get the response
         const data = res.json();//we will use it in updating the ui
@@ -28,6 +29,7 @@ const getWeatherData = async (baseURL, zipcode, key) => {
         console.log('error', error);
         // handling error properly
     }
+    
 }
 /* post Data*/ 
 const postData = async (url = '' ,data ={}) =>{

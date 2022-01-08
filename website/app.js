@@ -1,9 +1,9 @@
 /* Global Variables */
-const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
+const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
 const apiKey = '&appid=bec0344e6a513c7bd014f38d1e0e9e44&units=imperial';
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // get generate element
 document.getElementById('generate').addEventListener('click', doAction);
@@ -12,6 +12,7 @@ document.getElementById('generate').addEventListener('click', doAction);
 function doAction(e) {
     // get value
     const zipcode = document.getElementById("zip").value;
+    const content = document.getElementById('feelings').value;
     // combine all
     const fullUrl = `${baseURL}${zipcode}${apiKey}`;
     // condition no zip added
@@ -74,3 +75,6 @@ const retrieveData = async () => {
         // handling error porperly
     }
 }
+
+
+// feelings  = content

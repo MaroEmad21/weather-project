@@ -1,9 +1,9 @@
 /* Global Variables */
-const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
+const baseURL = 'http:s//api.openweathermap.org/data/2.5/weather?zip=';
 const apiKey = '&appid=bec0344e6a513c7bd014f38d1e0e9e44&units=imperial';
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // get generate element
 document.getElementById('generate').addEventListener('click', doAction);
@@ -12,7 +12,6 @@ document.getElementById('generate').addEventListener('click', doAction);
 function doAction(e) {
     // get value
     const zipcode = document.getElementById("zip").value;
-    const content = document.getElementById('feelings').value;
     // combine all
     const fullUrl = `${baseURL}${zipcode}${apiKey}`;
     // condition no zip added
@@ -64,21 +63,14 @@ const postData = async (url = '' ,data ={}) =>{
 }
 /*FUNCTION TO GET project Data */ 
 const retrieveData = async () => {
-    const response = await fetch('/getData');
+    const response = await fetch('/all');
     try {
         // transform into json
         const alldata = response.json()
         console.log(alldata);
-        // Write updated data to DOM elements
-        document.getElementById('temp').innerHTML = Math.round(allData.temp)+ 'degrees';
-        document.getElementById('content').innerHTML = allData.content;
-         document.getElementById("date").innerHTML =allData.newDate;
     }
     catch(error) {
         console.log("error",  error);
         // handling error porperly
     }
 }
-
-
-// feelings  = content

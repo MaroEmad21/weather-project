@@ -56,7 +56,7 @@ const postData = async (url = '' ,data ={}) =>{
 
 }
 /*FUNCTION TO GET project Data */ 
-const returnData = async () => {
+const udateUI = async () => {
     const response = await fetch('/all');
     try {
         // transform into json

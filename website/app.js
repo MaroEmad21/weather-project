@@ -1,5 +1,5 @@
 /* Global Variables */
-const baseURL = 'http:s//api.openweathermap.org/data/2.5/weather?zip=';
+const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 const apiKey = '&appid=bec0344e6a513c7bd014f38d1e0e9e44&units=imperial';
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -12,6 +12,8 @@ document.getElementById('generate').addEventListener('click', doAction);
 function doAction(e) {
     // get value
     const zipcode = document.getElementById("zip").value;
+    const content = document.getElementById("feelings").value
+    
     // combine all
     const fullUrl = `${baseURL}${zipcode}${apiKey}`;
     // condition no zip added
@@ -20,6 +22,13 @@ function doAction(e) {
     }
     // add the value to get the data
     getWeatherData(fullUrl)
+    .then(result => {
+        const temp = result;    
+        return postData('/setData',temp, content)
+    })
+    .then( result => {
+        retrieveData(result);
+    })
 }
 
 //fetch the data 
@@ -30,7 +39,7 @@ const getWeatherData = async (fullURL) => {
         // get the response
         const data = await res.json();//we will use it in updating the ui
         console.log(data);
-        return data.main.temp
+        return data.main.temp;
     }
     catch(error) {
         console.log('error', error);
@@ -48,7 +57,7 @@ const postData = async (url = '' , temp, content) =>{
     },
     body: JSON.stringify({
         date: newDate,
-        temp: temp,
+        temp: temp,     
         content: content
     }),// to match content type in header
 })
@@ -71,12 +80,12 @@ const retrieveData = async () => {
     const response = await fetch('/getData');
     try {
         // transform into json
-        const alldata = response.json()
+        const alldata = await response.json()
         console.log(alldata);
          // Write updated data to DOM elements
-        document.getElementById('temp').innerHTML = Math.round(allData.temp)+ 'degrees';
-        document.getElementById('content').innerHTML = allData.feel;
-        document.getElementById("date").innerHTML =allData.date;
+        document.getElementById('temp').innerHTML = Math.round(alldata.temp)+ ' degrees';
+        document.getElementById('content').innerHTML = alldata.content;
+        document.getElementById('date').textContent =alldata.date;
     }
     catch(error) {
         console.log("error",  error);

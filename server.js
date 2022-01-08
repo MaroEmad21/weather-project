@@ -40,6 +40,5 @@ app.post('/setData', addData)
 
 function addData(req, res){
     projectData = {...req.body}
-    console.log(req.body)
     res.send(projectData)
 }

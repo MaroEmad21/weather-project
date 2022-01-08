@@ -36,10 +36,9 @@ function getprojectData(req, res){
     console.log(projectData);
 }
 // POST route
-const data = [];
 app.post('/hey', addData)
 
 function addData(req, res){
-    data.push(req.body);
+    projectData = {...req.body}
     console.log(req.body)
 }

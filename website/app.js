@@ -12,17 +12,23 @@ document.getElementById('generate').addEventListener('click', doAction);
 function doAction(e) {
     // get value
     const zipcode = document.getElementById("zip").value;
+    // combine all
+    const fullUrl = `${baseURL}${zipcode}${apiKey}`;
+    // condition no zip added
+    if (!zipcode) {
+        alert("Enter zip code, please!")
+    }
     // add the value to get the data
-    getWeatherData(baseURL, zipcode, apiKey);
+    getWeatherData(fullUrl);
 }
 
 //fetch the data 
-const getWeatherData = async (baseURL, zip, key) => {
-    const res = await fetch(baseURL+zip+key)
+const getWeatherData = async (fullURL) => {
+    const res = await fetch(fullURL)
     //const response = await fetch("/fakeData")
     try {
         // get the response
-        const data = res.json();//we will use it in updating the ui
+        const data = await res.json();//we will use it in updating the ui
         console.log(data);
     }
     catch(error) {
